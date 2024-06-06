@@ -1,0 +1,38 @@
+Are there really programmers with computer science degrees who cannot pass the FizzBuzz test?
+Nope.
+
+Fizzbuzz is something I used to teach my programming 101 students in week 1 (and the beginning of the week). It is easy (and logical) to assume other computer science programs are doing something similar.
+
+In our case, we would start with something noob-friendly like (this one is somewhat different from the standard in that we start from 2 and go to 99; we also string-interpolate with a “-”):
+
+Are there really programmers with computer science degrees who cannot pass the FizzBuzz test?
+Nope.
+
+Fizzbuzz is something I used to teach my programming 101 students in week 1 (and the beginning of the week). It is easy (and logical) to assume other computer science programs are doing something similar.
+
+In our case, we would start with something noob-friendly like (this one is somewhat different from the standard in that we start from 2 and go to 99; we also string-interpolate with a “-”):
+
+
+
+
+Then proceed to showing the same program in many different ways in the same language (here C#) to let them appreciate the creativity and flexibility of programming. For instance, taking new features from C#8:
+
+
+Or simplify that further to:
+
+
+Then finally settle on a tuple-based switch which is less work (and computer-sciency) without impeding readability and efficiency:
+
+
+And contrast it with solutions that added unnecessary complexity and were not using the proper tools for the task (and did not use good variable names), like this one:
+
+
+Or this ternary one-liner with features from C#7 (while explaining that one must not overuse them and clarity must come first):
+
+Enumerable.Range(1, 100).ToList().ForEach(i => Console.WriteLine($"{i % 15 == 0 ? "FizzBuzz" : i % 3 == 0 ? "Fizz" : i % 5 == 0 ? "Buzz" : i.ToString()}")); 
+Update→
+
+Please see comment by Alex Jones. We could keep trimming the code until it becomes maximally efficient and concise without sacrificing readability, for instance, imply the %15 instead of explicitly stating it:
+
+
+However, I didn’t include this in the answer initially because I was afraid it would seem a bit abstruse to those readers new to programming. (Can you decipher exactly what is happening in there?).
